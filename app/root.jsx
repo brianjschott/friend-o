@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.css';
+
 import {
     Links,
     Meta,
@@ -6,22 +8,30 @@ import {
     Scripts,
   } from "@remix-run/react";
 
-import {Button, Accordion} from 'react-bootstrap';
-  
+import {Button} from 'react-bootstrap';
+import FriendList from "./friendview";
+
   export default function App() {
     return (
       <html>
         <head>
-
           <Meta />
           <Links />
+          <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+  crossorigin="anonymous"
+/>
         </head>
         <body>
-          <h1>Hello world!</h1>
-          <Button />
+          <h1>Friend-O App</h1>
+          <FriendList />
           <Outlet />
           <Scripts />
           <LiveReload />
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap**@5.1.0**/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
         </body>
       </html>
     );
