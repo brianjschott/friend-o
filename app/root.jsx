@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.css';
 
 import {
     Links,
@@ -9,7 +8,9 @@ import {
   } from "@remix-run/react";
 
 import {Button} from 'react-bootstrap';
-import FriendList from "./friendview";
+import FriendList from "./routes/allfriends";
+import 'bootstrap/dist/css/bootstrap.css';
+
 
   export default function App() {
     return (
@@ -26,7 +27,6 @@ import FriendList from "./friendview";
         </head>
         <body>
           <h1>Friend-O App</h1>
-          <FriendList />
           <Outlet />
           <Scripts />
           <LiveReload />
