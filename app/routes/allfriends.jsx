@@ -1,12 +1,11 @@
-import {Accordion, Image, Container, Col, Row} from 'react-bootstrap';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import {Accordion, Image} from 'react-bootstrap';
 
 export default function FriendList() {
     return (
         <Accordion defaultActiveKey="0">
             <FriendAccordionItem key="0" />
             <FriendAccordionItem key="1"/>
-            <FriendAccordionItem />
+            <FriendAccordionItem key="2"/>
         </Accordion>
     );
 }
@@ -21,6 +20,7 @@ function FriendAccordionItem() {
   
         </Accordion.Header>
         <Accordion.Body>
+            <Image src="" />
             Lorim ipsum 
         </Accordion.Body>
     </Accordion.Item>
