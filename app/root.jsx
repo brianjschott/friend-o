@@ -8,7 +8,7 @@ import {
   } from "@remix-run/react";
 
 import {Button} from 'react-bootstrap';
-import FriendList from "./routes/allfriends";
+import FriendList from "./components/friendmenu";
 import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css';
 
 export const links = () => [
@@ -31,7 +31,8 @@ export const scripts = () => [
           <Links />
         </head>
         <body>
-          <h1 class="display-1">Friend Zone</h1>
+          <h1 className="display-1">Friend Zone</h1>
+          <FriendList />
           <Outlet />
           <Scripts />
           <LiveReload />
