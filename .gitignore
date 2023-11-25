@@ -57,4 +57,4 @@ testem.log
 .vscode/launch.json
 
 # My Ignores
-.cache/
+.cache
