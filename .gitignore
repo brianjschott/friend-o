@@ -55,3 +55,6 @@ testem.log
 .DS_Store
 .vscode/settings.json
 .vscode/launch.json
+
+# My Ignores
+.cache/
