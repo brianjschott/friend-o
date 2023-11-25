@@ -22,29 +22,33 @@ export const scripts = () => [
 
 ]
 
+const rootStyles = {
+  backgroundColor: "#23D2FA",
+  height: "100vh"
+}
 
 
-  export default function App() {
-    return (
-      <html>
-        <head>
-          <Meta />
-          <Links />
-        </head>
-        <body>
-          <Container fluid>
-            <Row className="justify-content-md-center">
-              <Col md={6}>
-                <h1 className="display-1">Friend Zone</h1>
-                <FriendList />
-                <Outlet />
-              </Col>
-            </Row>
-          </Container>
-          <Scripts />
-          <LiveReload />
-          
-        </body>
-      </html>
-    );
-  }
+export default function App() {
+  return (
+    <html>
+      <head>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Container style={rootStyles} fluid>
+          <Row className="justify-content-md-center">
+            <Col md={6}>
+              <h1 className="display-1">Friend Zone</h1>
+              <FriendList />
+              <Outlet />
+            </Col>
+          </Row>
+        </Container>
+        <Scripts />
+        <LiveReload />
+        
+      </body>
+    </html>
+  );
+}
