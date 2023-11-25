@@ -1,4 +1,3 @@
-
 import {
     Links,
     Meta,
@@ -7,7 +6,7 @@ import {
     Scripts,
   } from "@remix-run/react";
 
-import {Button} from 'react-bootstrap';
+import {Container, Row, Col} from 'react-bootstrap';
 import FriendList from "./components/friendmenu";
 import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +22,8 @@ export const scripts = () => [
 
 ]
 
+
+
   export default function App() {
     return (
       <html>
@@ -31,9 +32,15 @@ export const scripts = () => [
           <Links />
         </head>
         <body>
-          <h1 className="display-1">Friend Zone</h1>
-          <FriendList />
-          <Outlet />
+          <Container fluid>
+            <Row className="justify-content-md-center">
+              <Col md={6}>
+                <h1 className="display-1">Friend Zone</h1>
+                <FriendList />
+                <Outlet />
+              </Col>
+            </Row>
+          </Container>
           <Scripts />
           <LiveReload />
           
