@@ -24,29 +24,26 @@ function FriendAccordionItem(props) {
     return (
         <Accordion.Item eventKey={props.ek}>
             <Accordion.Header>
-                <Row>
-                    <Col md={6}>
+                    <Col xs={1}><Image className="accordion-header-image" src="https://placehold.co/100x100" roundedCircle /></Col>
+                    <Col xs={6}>
                         <h1 className="display3">{props.friendName}</h1>
                     </Col>
-                    <Col>
+                    <Col xs={3}>
                         <em>Last Update: {props.lastUpdate}</em>
                     </Col>
-                    <Col><Image className="accordion-header-image" src="https://placehold.co/100x100" roundedCircle /></Col>
-                </Row>   
             </Accordion.Header>
             <Accordion.Body>
                 <Row>
-                    <Col sm={6}>
-                   
-                        <ListGroup>
-                            <ListGroup.Item><strong>Birthday:</strong> December 20, 1985</ListGroup.Item>
-                            <ListGroup.Item><strong>Favorite Spot:</strong> Cafes</ListGroup.Item>
-                        </ListGroup>
-                    </Col>
-                    <Col sm={3} />
-                    <Col sm={3}>
-                        <Image className="ms-auto accordion-body-image" src="https://placehold.co/100x100" roundedCircle />
-                    </Col>
+                <Col className="p-3" md={{span: 4, order: 2}}>
+                        <Image className="ms-auto accordion-body-image" src="https://placehold.co/250x250" fluid roundedCircle />
+                </Col>
+                <Col md={{ span: 6, order: 1}}>
+                    <ListGroup>
+                        <ListGroup.Item><strong>Birthday:</strong> December 20, 1985</ListGroup.Item>
+                        <ListGroup.Item><strong>Favorite Spot:</strong> Cafes</ListGroup.Item>
+                    </ListGroup>
+                </Col>
+
                 </Row>
             </Accordion.Body>
         </Accordion.Item>
