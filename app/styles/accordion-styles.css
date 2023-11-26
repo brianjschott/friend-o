@@ -1,0 +1,12 @@
+.accordion-button.collapsed .accordion-header-image{
+        width: 50px;
+        display: inline;
+}
+
+.accordion-button:not(.collapsed) .accordion-header-image {
+    display: none; 
+}
+
+.accordion-body-image {
+    max-width: 300px;
+}

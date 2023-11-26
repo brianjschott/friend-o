@@ -9,9 +9,11 @@ import {
 import {Container, Row, Col} from 'react-bootstrap';
 import FriendList from "./components/friendmenu";
 import bootstrapCSS from 'bootstrap/dist/css/bootstrap.min.css';
+import accordionStyles from "./styles/accordion-styles.css"
 
 export const links = () => [
-    {rel: "stylesheet", href: bootstrapCSS}
+    {rel: "stylesheet", href: bootstrapCSS},
+    {rel: "stylesheet", href: accordionStyles}
 ]
 
 export const meta = () => [
