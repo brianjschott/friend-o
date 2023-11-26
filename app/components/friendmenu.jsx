@@ -1,6 +1,6 @@
 import {Accordion,AccordionContext,Image, ListGroup, Row, Col} from 'react-bootstrap';
-import {useContext} from 'react';
-import {createPopper} from '@popperjs/core'
+import {db} from './../model/firebaseconfig'
+import {collection, getDocs} from 'firebase/firestore/lite'
 
 export default function FriendList() {
     return (
@@ -9,8 +9,6 @@ export default function FriendList() {
         </Accordion>
     );
 }
-
-
 
 function FriendAccordionItem(props) {
     return (
@@ -49,4 +47,11 @@ function FriendAccordionItem(props) {
             </Accordion.Body>
         </Accordion.Item>
     )
+}
+
+async function getFriends() {
+    const friendsCollection = collection(db, 'friends')
+    const friendsSnapshot = await getDocs(friendsCollection)
+    const friendsList = friendsSnapshot.docs.map(doc => doc.data())
+    return friendsList
 }

@@ -60,3 +60,4 @@ testem.log
 .cache
 package-lock.json
 .env
+service-account-key.json
