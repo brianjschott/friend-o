@@ -59,3 +59,4 @@ testem.log
 # My Ignores
 .cache
 package-lock.json
+.env
