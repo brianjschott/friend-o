@@ -29,6 +29,8 @@ const rootStyles = {
   height: "100vh"
 }
 
+const appName = "FriendUp"
+
 
 export default function App() {
   return (
@@ -36,12 +38,13 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <title>{appName}</title>
       </head>
       <body>
         <Container style={rootStyles} fluid>
           <Row className="justify-content-md-center">
             <Col md={6}>
-              <h1 className="display-1">Friend Zone</h1>
+              <h1 className="display-1">{appName}</h1>
               <FriendList />
               <Outlet />
             </Col>
