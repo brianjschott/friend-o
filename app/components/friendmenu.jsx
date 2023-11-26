@@ -1,5 +1,6 @@
 import {Accordion,AccordionContext,Image, ListGroup, Row, Col} from 'react-bootstrap';
 import {useContext} from 'react';
+import {createPopper} from '@popperjs/core'
 
 export default function FriendList() {
     return (
@@ -9,41 +10,41 @@ export default function FriendList() {
     );
 }
 
-const imageStyles = {
-    full: {
-        maxWidth: "250px"
-    },
-    thumbnail: {
-        maxWidth: "75px"
-    }
-
-}
 
 
 function FriendAccordionItem(props) {
     return (
         <Accordion.Item eventKey={props.ek}>
-            <Accordion.Header>
-                    <Col xs={1}><Image className="accordion-header-image" src="https://placehold.co/100x100" roundedCircle /></Col>
-                    <Col xs={6}>
-                        <h1 className="display3">{props.friendName}</h1>
+            <Accordion.Header as="Row">
+
+                    <Col md={1}><Image className="accordion-header-image" src="https://placehold.co/100x100" roundedCircle /></Col>
+                    <Col className="p-2" md={3}>
+                        <h2>{props.friendName}</h2>
                     </Col>
-                    <Col xs={3}>
+                    <Col md={3}>
+                        <i class="bi bi-person-vcard" alt="Info"></i>
+                        <i class="bi bi-person-fill-up" alt="Info"></i>
+                        <i class="bi bi-person-fill-dash" alt="Info"></i>
+                        <i class="bi bi-person-fill-down" alt="Info"></i>
+                        <i class="bi bi-person-fill-gear" alt="Info"></i>
+
+                    </Col>
+                    <Col md={3}>
                         <em>Last Update: {props.lastUpdate}</em>
                     </Col>
+
             </Accordion.Header>
             <Accordion.Body>
                 <Row>
-                <Col className="p-3" md={{span: 4, order: 2}}>
-                        <Image className="ms-auto accordion-body-image" src="https://placehold.co/250x250" fluid roundedCircle />
-                </Col>
-                <Col md={{ span: 6, order: 1}}>
-                    <ListGroup>
-                        <ListGroup.Item><strong>Birthday:</strong> December 20, 1985</ListGroup.Item>
-                        <ListGroup.Item><strong>Favorite Spot:</strong> Cafes</ListGroup.Item>
-                    </ListGroup>
-                </Col>
-
+                    <Col className="p-3" md={{span: 4, order: 2, offset: 1}}>
+                            <Image className="ms-auto accordion-body-image" src="https://placehold.co/250x250" fluid roundedCircle />
+                    </Col>
+                    <Col md={{ span: 6, order: 1}}>
+                        <ListGroup>
+                            <ListGroup.Item><strong>Birthday:</strong> December 20, 1985</ListGroup.Item>
+                            <ListGroup.Item><strong>Favorite Spot:</strong> Cafes</ListGroup.Item>
+                        </ListGroup>
+                    </Col>
                 </Row>
             </Accordion.Body>
         </Accordion.Item>

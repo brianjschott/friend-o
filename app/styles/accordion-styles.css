@@ -11,3 +11,8 @@
     max-width: 250px;
     width: 100%;
 }
+
+i {
+    padding: 10px;
+    color: #333;
+}

@@ -43,7 +43,7 @@ export default function App() {
         <Container style={rootStyles} fluid>
           <Row className="justify-content-md-center">
             <Col xs={6}>
-              <h1 className="display-1">{appName}</h1>
+              <h1 class="display-1">{appName}</h1>
               <FriendList />
               <Outlet />
             </Col>
