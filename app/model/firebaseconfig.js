@@ -1,12 +1,8 @@
-import {admin} from 'firebase-admin'
+// import {initializeApp} from 'firebase-admin/app'
 import {initializeApp} from "firebase/app";
-import {serviceAccount} from './service-account-key.json'
 import {getFirestore} from 'firebase/firestore/lite'
+// import serviceAccount from './service-account-key'
 import 'dotenv/config'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-// Your web app's Firebase configuration
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -17,9 +13,9 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID
 };
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-})
+// initializeApp({
+//     credential: admin.credential.cert(serviceAccount)
+// })
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);

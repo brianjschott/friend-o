@@ -1,35 +1,42 @@
 import {Accordion,AccordionContext,Image, ListGroup, Row, Col} from 'react-bootstrap';
-import {db} from './../model/firebaseconfig'
-import {collection, getDocs} from 'firebase/firestore/lite'
+import {json} from '@remix-run/node'
 
 export default function FriendList() {
-    return (
-        <Accordion defaultActiveKey="0">
-            <FriendAccordionItem friendName="Sam T" ek="0" lastUpdate="12/03/22" />
-        </Accordion>
-    );
+
+        const data = useLoaderData();
+        console.log("Data is " + data)
+        let accordionItemList = []
+        data.forEach((friend, index) => {
+            accordionItemList.push(<FriendAccordionItem friendName="{friend.friendFirstName}" ek="{index}" lastUpdate="12/03/22" />)
+        })
+
+
+        return (
+            <Accordion defaultActiveKey="0">
+                {accordionItemList}
+            </Accordion>
+        );
 }
 
 function FriendAccordionItem(props) {
     return (
         <Accordion.Item eventKey={props.ek}>
             <Accordion.Header as="Row">
+                <Col md={1}><Image className="accordion-header-image" src="https://placehold.co/100x100" roundedCircle /></Col>
+                <Col className="p-2" md={3}>
+                    <h2>{props.friendName}</h2>
+                </Col>
+                <Col md={3}>
+                    <i className="bi bi-person-vcard" alt="Info"></i>
+                    <i className="bi bi-person-fill-up" alt="Info"></i>
+                    <i className="bi bi-person-fill-dash" alt="Info"></i>
+                    <i className="bi bi-person-fill-down" alt="Info"></i>
+                    <i className="bi bi-person-fill-gear" alt="Info"></i>
 
-                    <Col md={1}><Image className="accordion-header-image" src="https://placehold.co/100x100" roundedCircle /></Col>
-                    <Col className="p-2" md={3}>
-                        <h2>{props.friendName}</h2>
-                    </Col>
-                    <Col md={3}>
-                        <i class="bi bi-person-vcard" alt="Info"></i>
-                        <i class="bi bi-person-fill-up" alt="Info"></i>
-                        <i class="bi bi-person-fill-dash" alt="Info"></i>
-                        <i class="bi bi-person-fill-down" alt="Info"></i>
-                        <i class="bi bi-person-fill-gear" alt="Info"></i>
-
-                    </Col>
-                    <Col md={3}>
-                        <em>Last Update: {props.lastUpdate}</em>
-                    </Col>
+                </Col>
+                <Col md={3}>
+                    <em>Last Update: {props.lastUpdate}</em>
+                </Col>
 
             </Accordion.Header>
             <Accordion.Body>
@@ -47,11 +54,4 @@ function FriendAccordionItem(props) {
             </Accordion.Body>
         </Accordion.Item>
     )
-}
-
-async function getFriends() {
-    const friendsCollection = collection(db, 'friends')
-    const friendsSnapshot = await getDocs(friendsCollection)
-    const friendsList = friendsSnapshot.docs.map(doc => doc.data())
-    return friendsList
 }
