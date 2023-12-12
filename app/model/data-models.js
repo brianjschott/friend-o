@@ -22,9 +22,9 @@ export async function getFriends() {
 }
 
 //TODO: WHY AM I NOT USING MYCOLLECTION HERE?
-export async function getFriend(docReference) {
-    const myCollection = collection(db, 'friends')
-    const querySnapshot = await getDoc(docReference)
+export async function getFriend(docID) {
+    const docRef = doc(db, 'friends', docID)
+    const querySnapshot = await getDoc(docRef)
     if (querySnapshot.exists()) {
         return querySnapshot.data()
     }
