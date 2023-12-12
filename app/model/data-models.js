@@ -21,6 +21,7 @@ export async function getFriends() {
     throw new Error("No collection exists with that ID")
 }
 
+//TODO: WHY AM I NOT USING MYCOLLECTION HERE?
 export async function getFriend(docReference) {
     const myCollection = collection(db, 'friends')
     const querySnapshot = await getDoc(docReference)
