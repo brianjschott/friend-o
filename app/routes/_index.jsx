@@ -2,9 +2,10 @@ import {db} from './../model/firebaseconfig'
 import {collection, getDocs} from 'firebase/firestore/lite'
 import {useLoaderData} from '@remix-run/react'
 import {ListGroup} from 'react-bootstrap'
+import {getFriends} from './../model/data-models'
 
 export let loader = async () => {
-
+    const docs = await getFriends()
     return docs
 }
 
